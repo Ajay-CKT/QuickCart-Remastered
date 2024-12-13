@@ -122,15 +122,23 @@ const CartPage = () => {
             </div>
             <div className="flex justify-between text-sm font-['Inter'] mt-2">
               <p>Total Amount:</p>
-              <p>
-                ₹
-                {(
-                  cartItems.reduce(
-                    (total, item) => total + item.totalPrice,
-                    0
-                  ) * 0.9
-                ).toFixed(2)}
-              </p>
+              <div className="flex gap-2">
+                <p className="line-through">
+                  ₹
+                  {cartItems
+                    .reduce((total, item) => total + item.totalPrice, 0)
+                    .toFixed(2)}
+                </p>
+                <p>
+                  ₹
+                  {(
+                    cartItems.reduce(
+                      (total, item) => total + item.totalPrice,
+                      0
+                    ) * 0.9
+                  ).toFixed(2)}
+                </p>
+              </div>
             </div>
             <p className="text-xs text-right font-mono">
               <span className="text-red-600 font-semibold">10%</span> discount
