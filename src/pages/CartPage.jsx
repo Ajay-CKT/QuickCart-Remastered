@@ -124,11 +124,18 @@ const CartPage = () => {
               <p>Total Amount:</p>
               <p>
                 ₹
-                {cartItems
-                  .reduce((total, item) => total + item.totalPrice, 0)
-                  .toFixed(2)}
+                {(
+                  cartItems.reduce(
+                    (total, item) => total + item.totalPrice,
+                    0
+                  ) * 0.9
+                ).toFixed(2)}
               </p>
             </div>
+            <p className="text-xs text-right font-mono">
+              <span className="text-red-600 font-semibold">10%</span> discount
+              added
+            </p>
           </div>
           <button
             className="bg-[#89023E] text-white rounded-full flex justify-center items-center py-2"
